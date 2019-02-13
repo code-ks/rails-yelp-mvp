@@ -1,0 +1,29 @@
+<div class="container">
+  <h1><%= @restaurant.name %></h1>
+    <ul class="list-unstyled">
+      <li>
+        <%= @restaurant.category.capitalize %>
+      </li>
+      <li>
+        <%= @restaurant.address %>
+      </li>
+      <li>
+        <%= @restaurant.phone_number %>
+      </li>
+      <li>
+        <%= link_to('Add a review', new_restaurant_review_path(@restaurant)) %>
+      </li>
+       <% @restaurant.reviews.each do |review| %>
+         <li>
+            <%= review.content %>
+         </li>
+          <li>
+            <%= review.rating %>
+           </li>
+       <% end %>
+      <!-- <li>
+        <% %>
+      </li> -->
+    </ul>
+  <%= link_to 'Back', root_path %>
+</div>
